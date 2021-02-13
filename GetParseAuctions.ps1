@@ -1,10 +1,11 @@
 ﻿if (!(Test-Path -Path "$PSScriptRoot\Img")){
 Write-Host "Image directory is missing. Please unzip it before running this script."
 Write-Host "The script is expecting the `"Img`" directory to be in the same directory where the script is being run."
+Write-Host "Also be sure to add your Market ID in the script....."
 break}
 
 
-$response = Invoke-WebRequest -Uri 'https://linode.ghazlawl.com/ark/mods/auctionhouse/api/json/v1/auctions/' -UseBasicParsing
+$response = Invoke-WebRequest -Uri 'https://linode.ghazlawl.com/ark/mods/auctionhouse/api/json/v1/auctions/?MarketID=[YOUR-MARKET-ID-HERE]' -UseBasicParsing
 $Auctions = $response | ConvertFrom-Json
 $Eggfile = "$PSScriptRoot/EggListings.html"
 $Itemfile = "$PSScriptRoot/ItemListings.html"
