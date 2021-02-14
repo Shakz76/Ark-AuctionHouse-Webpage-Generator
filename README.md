@@ -3,7 +3,7 @@ Generate a web page based on the API call to the Ark Auction House mod by [Ghazl
 This script runs in a windows environment. It will scrape data from the auction house and display it in an HTML table.
 
 
-**EXAMPLE**:http://eazyhax.com/auctionhouse/
+**EXAMPLE**: http://eazyhax.com/auctionhouse/
 
 
 **The Main Benifit:** The website is VASTLY faster than using the in game interface. This will allow your users to quickly browse the market. On my server we can only interact with the market via a single server hub. This means we have to jump first to see what is available then jump back to get the asking price....etc.
