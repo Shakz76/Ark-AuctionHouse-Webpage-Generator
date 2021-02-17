@@ -179,6 +179,7 @@ $ItemCellDino = @'
     <td>Levels</td>
   </tr>
 '@
+if($Item -eq "Grifo"){$Item = "Griffin"}
 $Level = $Auction.Dino.Level
 $Tamed = $Auction.Dino.BaseLevel
 $Gender = $Auction.Dino.Gender
@@ -191,9 +192,16 @@ $ST = (($Stats.Stamina)|Out-String).Split('.')[0]
 $OX = (($Stats.Oxygen)|Out-String).Split('.')[0]
 $FD = (($Stats.Food)|Out-String).Split('.')[0]
 $WT = (($Stats.Weight)|Out-String).Split('.')[0]
-$DMG = (($Stats.Damage)|Out-String)
+$DMG = ($Stats.Damage)
 $SPD = (($Stats.Speed)|Out-String).Split('.')[0]
-$Stats = "Health: $HP<br>Stam: $ST<br> Weight: $WT<br> Damage: $DMG<br> Oxygen: $OX<br> Food: $FD<br>"
+if($Item -match "Wyvern"){
+[int]$BaseDmg = ((Get-Content $PSScriptRoot\BaseDamage.txt|Select-String "Wyvern") -split ",")[1]
+}
+else{
+[int]$BaseDmg = ((Get-Content $PSScriptRoot\BaseDamage.txt|Select-String "$item") -split ",")[1]
+}
+$DMG = ($DMG*$BaseDmg)
+$Stats = "Health: $HP<br>Stam: $ST<br> Weight: $WT<br> Damage (Inaccurate) : $DMG<br> Oxygen: $OX<br> Food: $FD<br>"
 $ItemCellDino = $ItemCellDino -replace "Seller","$Seller" -replace "Dino","$ItemLink" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats" -replace "Levels","$Levels"
 $ItemCellDino |Out-File $Dinofile -Append
 }
