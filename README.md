@@ -34,7 +34,7 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 7. Add Arguments, change the path to the exact directory where the script resides.
 
 ```
--command "& {& C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\GetParseAuctions.ps1}"
+-WindowStyle Hidden -command "& {& C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\GetParseAuctions.ps1}"
 ```
 
 8. Start in same directory as above.
@@ -48,8 +48,6 @@ C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\
 10. Down in advanced settings and tick Repeat Task Every 10 minutes or however often you want the website synced with your Auction House.
 
 11. You may want to select the General Tab and click "Run whether user is logged on or not" if your server session does not stay on when you close the RDP window/you log out.
-
-12. Also on the General tab you may want to tick the Hidden box else a powershell window will pop up for a few seconds while the script is running. 
 
 
 **Known Issues:**
