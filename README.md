@@ -47,6 +47,10 @@ C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\
 
 10. Down in advanced settings and tick Repeat Task Every 10 minutes or however often you want the website synced with your Auction House.
 
+11. You may want to select the General Tab and click "Run whether user is logged on or not" if your server session does not stay on when you close the RDP window/you log out.
+
+12. Also on the General tab you may want to tick the Hidden box else a powershell window will pop up for a few seconds while the script is running. 
+
 
 **Known Issues:**
 
