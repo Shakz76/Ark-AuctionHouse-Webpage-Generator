@@ -1,4 +1,5 @@
 Achatina,0
+X-Allosaurus,35
 Allosaurus,35
 Alpha Basilisk,55
 Alpha Blood Crystal Wyvern,80
@@ -60,7 +61,7 @@ Brute Mammoth,104
 Brute Megaloceros,55
 Brute Megaloceros,55
 Brute Plesiosaur,134
-Brute Reaper King,52
+Reaper King (Tamed),52
 Brute Sarco,98
 Brute Seeker,10
 Brute Tusoteuthis,98
@@ -119,6 +120,7 @@ Dodo Wyvern,600
 Dodobitus,
 DodoRex,666
 Doedicurus,32
+Aberrant Doedicurus,32
 Doedicurus Vastus,
 Dragon (Alpha),0
 Dragon (Beta),0
@@ -225,6 +227,7 @@ Overseer (Beta),0
 Overseer (Gamma),0
 Oviraptor,12
 Ovis,5
+Aberrant Ovis,5
 Pachy,10
 Pachyrhinosaurus,28
 Paraceratherium,45
@@ -258,6 +261,8 @@ Reaper (King Tamed),75
 Reaper (Subterranean King),85
 Reaper (Surface King),85
 Rex,62
+X-Rex,62
+Tek Rex,62
 Rex (Corrupted),62
 Rex Ghost,62
 Rock Drake,60
@@ -306,6 +311,7 @@ Titanoboa,30
 Titanomyrma,7
 Titanomyrma,11
 Titanosaur,1000
+Tek Triceratops,32
 Triceratops,32
 Aberrant Triceratops,32
 Triceratops (Corrupted),32
