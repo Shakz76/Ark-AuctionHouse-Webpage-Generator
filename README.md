@@ -31,13 +31,13 @@ You can of course run it locally first to test prior to deployment on your web s
 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 ```
 
-7. Add Arguments
+7. Add Arguments, change the path to the exact directory where the script resides.
 
 ```
 -command "& {& C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\GetParseAuctions.ps1}"
 ```
 
-8. Start in same directory as above
+8. Start in same directory as above.
 
 ```
 C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\
