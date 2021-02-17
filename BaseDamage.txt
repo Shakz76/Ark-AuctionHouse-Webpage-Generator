@@ -1,0 +1,328 @@
+Achatina,0
+Allosaurus,35
+Alpha Basilisk,55
+Alpha Blood Crystal Wyvern,80
+Alpha Carnotaurus,80
+Alpha Deathworm,500
+Alpha Fire Wyvern,140
+Alpha Karkinos,160
+Alpha Leedsichthys,160
+Alpha Megalodon,60
+Alpha Mosasaur,200
+Alpha Raptor,40
+Alpha Surface Reaper King,180
+Alpha T-Rex,170
+Alpha Tusoteuthis,130
+Alpha X-Triceratops,48
+Ammonite,0
+Anglerfish,30
+Ankylosaurus,50
+Aberrant Ankylosaurus,50
+Araneo,10
+Archaeopteryx,5
+Argentavis,25
+Argentustus,
+Arthropluera,18
+Aberrant Arthropluera,18
+Arthropluera (Corrupted),18
+Astrocetus,29
+Astrodelphis,
+Attack Drone (Alpha),28
+Attack Drone (Beta),28
+Attack Drone (Gamma),28
+Baryonyx,35
+Basilisk,55
+Basilisk Ghost,55
+Basilosaurus,47
+Beelzebufo,12
+Beelzemorbus,
+Bloodstalker,26
+Bone Fire Wyvern,140
+Brontosaurus,60
+Broodgenetrix,
+Broodmother Lysrix (Alpha),540
+Broodmother Lysrix (Beta),320
+Broodmother Lysrix (Gamma),180
+Broodmother Lysrix (The Center Alpha),700
+Broodmother Lysrix (The Center Beta),280
+Broodmother Lysrix (The Center Gamma),210
+Brute Araneo,20
+Brute Astrocetus,88
+Brute Basilosaurus,47
+Brute Bloodstalker,72
+Brute Ferox,152
+Brute Fire Wyvern,140
+Brute Leedsichthys,174
+Brute Magmasaur,59
+Brute Malfunctioned Tek Giganotosaurus,430
+Brute Malfunctioned Tek Rex,135
+Brute Mammoth,104
+Brute Megaloceros,55
+Brute Megaloceros,55
+Brute Plesiosaur,134
+Brute Reaper King,52
+Brute Sarco,98
+Brute Seeker,10
+Brute Tusoteuthis,98
+Brute X-Allosaurus,59
+Brute X-Megalodon,110
+Brute X-Mosasaurus,146
+Brute X-Raptor,110
+Brute X-Rex,135
+Brute X-Rock Elemental,136
+Brute X-Spino,92
+Brute X-Yutyrannus,110
+Bulbdog,12
+Bulbdog Ghost,12
+Bunny Dodo,5
+Carbonemys,13
+Carnotaurus,35
+Carnotaurus (Aberrant),35
+Carnotaurus (Corrupted),35
+Castoroides,28
+Chalicotherium,36
+Chalicotherium (Corrupted),36
+Cnidaria,30
+Coelacanth,5
+Compy,4
+Corrupted Avatar,
+Corrupted Master Controller (Alpha),
+Corrupted Master Controller (Beta),
+Corrupted Master Controller (Gamma),
+Crystal Wyvern,45
+Crystal Wyvern,45
+Crystal Wyvern Queen,160
+Crystal Wyvern Queen,160
+Crystal Wyvern Queen,160
+Cubozoa Multis,
+Daeodon,29
+Deathworm,225
+Deathworm (Minion),225
+Defense Unit (Alpha),35
+Defense Unit (Beta),35
+Defense Unit (Gamma),35
+Deinonychus,30
+Desert Titan,0
+Desert Titan,15
+Dilophosaur,10
+Dilophosaur (Corrupted),10
+Dimetrodon,20
+Dimorphodon,23
+Diplocaulus,10
+Diplodocus,0
+Dire Bear,50
+Dire Bear,50
+Direwolf,33
+Direwolf Ghost,33
+Dodo,5
+Dodo Wyvern,600
+Dodobitus,
+DodoRex,666
+Doedicurus,32
+Doedicurus Vastus,
+Dragon (Alpha),0
+Dragon (Beta),0
+Dragon (Gamma),0
+Dung Beetle,5
+Dunkleosteus,60
+Electrophorus,3
+Enforcer,34
+Enraged Corrupted Rex,200
+Enraged Triceratops,0
+Equus,9
+Eurypterid,7
+Featherlight,3
+Ferox,5
+Ferox,46
+Forest Titan,0
+Gacha,32
+GachaClaus,32
+Gallimimus,8
+Gasbags,5
+Giant Bee,8
+Giant Bee,12
+Giganotosaurus,500
+Giganotosaurus (Corrupted),250
+Gigantopithecus,40
+Glowbug,18
+Glowtail,12
+Golden Striped Brute Megalodon,110
+Golden Striped Megalodon,
+Griffin,27
+Gula Beetle,
+Hesperornis,1
+Hyaenodon,15
+Ice Titan,2500
+Iceworm Male,225
+Iceworm Queen,500
+Ichthyornis,1
+Ichthyosaurus,15
+Iguanodon,25
+Injured Brute Reaper King,
+Insect Swarm,23
+Jerboa,3
+Jug Bug,18
+Kairuku,8
+Kaprosuchus,25
+Karkinos,32
+Kentrosaurus,10
+King Titan,0
+King Titan,0
+Lamprey,7
+Lava Elemental,120
+Leech,7
+Leedsichthys,115
+Liopleurodon,40
+Lymantria,18
+Lystrosaurus,6
+Maewing,
+Magmasaur,120
+Mammoth,48
+Managarmr,35
+Manta,28
+Manticore (Alpha),120
+Manticore (Beta),110
+Manticore (Gamma),85
+Mantis,34
+Mantis Ghost,34
+Megachelon,125
+Megalania,10
+Megaloceros,30
+Megalodon,40
+Megalosaurus,75
+Meganeura,10
+Megapithecus (Alpha),1200
+Megapithecus (Beta),800
+Megapithecus (Gamma),400
+Megapithecus (The Center Alpha),800
+Megapithecus (The Center Beta),600
+Megapithecus (The Center Gamma),400
+Megapithecus Pestis,
+Megatherium,32
+Mek,300
+Mek (Mega),3000
+Mesopithecus,12
+Microraptor,8
+Moeder, Master of the Ocean (Alpha),175
+Moeder, Master of the Ocean (Alpha),520
+Moeder, Master of the Ocean (Beta),175
+Moeder, Master of the Ocean (Beta),360
+Moeder, Master of the Ocean (Gamma),175
+Moeder, Master of the Ocean (Gamma),180
+Morellatops,32
+Mosasaurus,100
+Moschops,32
+Moschops (Aberrant),32
+Nameless,10
+Noctis,9
+Noglin,
+Obsidioequus,
+Onyc,35
+Otter,10
+Overseer,0
+Overseer (Alpha),0
+Overseer (Beta),0
+Overseer (Gamma),0
+Oviraptor,12
+Ovis,5
+Pachy,10
+Pachyrhinosaurus,28
+Paraceratherium,45
+Aberrant Paraceratherium,45
+Paraceratherium (Corrupted),45
+Parakeet Fish School,23
+Parasaur,12
+Aberrant Parasaur,12
+Party Dodo,5
+Pegomastax,10
+Pelagornis,16
+Phiomia,10
+Phoenix,14
+Piranha,22
+Plesiosaur,75
+Procoptodon,20
+Pteranodon,18
+Pteranodon (Corrupted),12
+Pulmonoscorpius,15
+Purlovia,32
+Purlovia,32
+Quetzal,32
+Raptor,15
+Aberrant Raptor,15.75
+Raptor (Corrupted),15
+Ravager,33
+Reaper,75
+Reaper (Alpha Surface King),180
+Reaper (Elemental King),90
+Reaper (King Tamed),75
+Reaper (Subterranean King),85
+Reaper (Surface King),85
+Rex,62
+Rex (Corrupted),62
+Rex Ghost,62
+Rock Drake,60
+Rock Drake (Corrupted),60
+Rock Elemental,120
+Rock Elemental (Minion),120
+Rock Elemental (Rubble Golem),75
+Rockwell (Alpha),0
+Rockwell (Beta),0
+Rockwell (Gamma),0
+Roll Rat,42
+Royal Griffin,27
+Sabertooth,29
+Sabertooth Salmon,4
+Sarco,35
+Aberrant Sarco,35
+Scout,0
+Seeker,10
+Shadowmane,
+Shinehorn,12
+Skeletal Bronto,90
+Skeletal Carnotaurus,80
+Skeletal Giganotosaurus,1200
+Skeletal Jerboa,3
+Skeletal Quetzal,48
+Skeletal Raptor,40
+Skeletal Rex,170
+Skeletal Stego,62
+Skeletal Trike,48
+Snow Owl,25
+Snow Owl Ghost,25
+Spinosaur,40
+Spino,40
+Aberrant Spino,40
+Stegosaurus,42
+Aberrant Stegosaurus,42
+Stryder,
+Super Turkey,61
+Surface Reaper King Ghost,52
+Tapejara,18
+Terror Bird,18
+Therizinosaur,52
+Thorny Dragon,40
+Thylacoleo,40
+Titanoboa,30
+Titanomyrma,7
+Titanomyrma,11
+Titanosaur,1000
+Triceratops,32
+Aberrant Triceratops,32
+Triceratops (Corrupted),32
+Trilobite,0
+Troodon,7
+Tropeognathus,18
+Tusoteuthis,65
+Velonasaur,32
+Vulture,23
+Woolly Rhino,40
+Wyvern,80
+Ember Crystal Wyvern,80
+Blood Crystal Wyvern,80
+Tropical Crystal Wyvern,80
+Lightning Wyvern,80
+Poison Wyvern,80
+Yeti,50
+Yutyrannus,55
+Zombie Wyvern,80
+Zomdodo,55
