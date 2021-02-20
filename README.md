@@ -18,6 +18,38 @@ I plan to add the ability for users to check their own market items based on Ste
 
 You can of course run it locally first to test prior to deployment on your web server.  
 
+**How to create a scheduled Task to refresh the website**
+
+1. Open Task Scheduler
+2. Create Basic Task...
+3. Name it what you want. 
+4. Trigger Daily > Recur Every 1 day
+5. Start a Program
+6. Program/Script
+
+```
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+```
+
+7. Add Arguments, change the path to the exact directory where the script resides.
+
+```
+-WindowStyle Hidden -command "& {& C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\GetParseAuctions.ps1}"
+```
+
+8. Start in same directory as above.
+
+```
+C:\Users\User\Ark-AuctionHouse-Webpage-Generator-main\
+```
+
+9. Find the task you just created, right click and select properties, Select Triggers, Select your trigger and select edit.
+
+10. Down in advanced settings and tick Repeat Task Every 10 minutes or however often you want the website synced with your Auction House.
+
+11. You may want to select the General Tab and click "Run whether user is logged on or not" if your server session does not stay on when you close the RDP window/you log out.
+
+
 **Known Issues:**
 
 * I expect some item images may be missing and will update the img files as reports come in if possible.
@@ -25,3 +57,4 @@ You can of course run it locally first to test prior to deployment on your web s
 * Egg Parent levels are not provided by the API so they are missing
 
 The first release is available [here](https://github.com/Shakz76/Ark-AuctionHouse-Webpage-Generator/releases)
+
