@@ -332,3 +332,4 @@ Yeti,50
 Yutyrannus,55
 Zombie Wyvern,80
 Zomdodo,55
+X-Woolly Rhino,40
