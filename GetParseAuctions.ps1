@@ -200,7 +200,7 @@ if($Item -match "Wyvern"){
 else{
 [int]$BaseDmg = ((Get-Content $PSScriptRoot\BaseDamage.txt|Select-String "$item") -split ",")[1]
 }
-$DMG = ($DMG*$BaseDmg)
+$DMG = ($Level*5/100*$DMG*$BaseDmg)
 $Stats = "Health: $HP<br>Stam: $ST<br> Weight: $WT<br> Damage (Inaccurate) : $DMG<br> Oxygen: $OX<br> Food: $FD<br>"
 $ItemCellDino = $ItemCellDino -replace "Seller","$Seller" -replace "Dino","$ItemLink" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats" -replace "Levels","$Levels"
 $ItemCellDino |Out-File $Dinofile -Append
