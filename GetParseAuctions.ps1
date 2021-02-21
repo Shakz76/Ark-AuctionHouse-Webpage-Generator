@@ -1,8 +1,4 @@
-﻿if (!(Test-Path -Path "$PSScriptRoot\Img")){
-Write-Host "Image directory is missing. Please unzip it before running this script."
-Write-Host "The script is expecting the `"Img`" directory to be in the same directory where the script is being run."
-Write-Host "Also be sure to add your Market ID in the script....."
-break}
+﻿$ImageHostLink = "https://raw.githubusercontent.com/Shakz76/Ark-AuctionHouse-Webpage-Generator-images/master/img"
 
 
 $response = Invoke-WebRequest -Uri 'https://linode.ghazlawl.com/ark/mods/auctionhouse/api/json/v1/auctions/?MarketID=[YOUR-MARKET-ID-HERE]' -UseBasicParsing
@@ -155,7 +151,7 @@ $AuctionType = $Auction.Type
 $Seller = $Auction.Seller.Name
 $Item = $auction.Name
 $ItemArkName = $Auction.SellingClass
-#$ItemLink = "$Item<br><img src=`"./img/$ItemArkName.png`">"
+#$ItemLink = "$Item<br><img src=`"$ImageHostLink/$ItemArkName.png`">"
 $ItemQuantity = $Auction.Quantity
 $PriceItemName = $Auction.AskingClass -replace "PrimalItemResource_","" -replace "_C","" -replace "PrimalItemConsumable_",""
 if ($PriceItemName -eq "AmmoniteBlood"){$PriceItemName = "Ammonite Bile"}
@@ -166,7 +162,7 @@ if ($PriceItemName -eq "Gem_Element"){$PriceItemName = "Red Gem"}
 if ($PriceItemName -eq "Polymer_Organic"){$PriceItemName = "Organic Polymer"}
 if ($PriceItemName -eq "Silicon"){$PriceItemName = "Silica Pearls"}
 $PriceItem = $Auction.AskingClass
-$PriceItem = "$PriceItemName<br><img src=`"./img/Items/$PriceItem.png`"> "
+$PriceItem = "$PriceItemName<br><img src=`"$ImageHostLink/Items/$PriceItem.png`"> "
 $PriceQuantity = $Auction.AskingAmount
 if ($AuctionType -eq "Dino"){
 $ItemCellDino = @'
@@ -185,7 +181,7 @@ $Tamed = $Auction.Dino.BaseLevel
 $Gender = $Auction.Dino.Gender
 $Stats = ($Auction.Dino.Stats)
 $Fixed = ($Auction.Dino.Flags.IsNeutered)
-$ItemLink = "$Item<br><img src=`"./img/Dinos/$ItemArkName.png`">"
+$ItemLink = "$Item<br><img src=`"$ImageHostLink/Dinos/$ItemArkName.png`">"
 $Levels = "Gender: $Gender <br>Nutered: $Fixed<br>Tamed Level: $Tamed<br> Current Level: $Level <br> "
 $HP = (($Stats.Health)|Out-String).Split('.')[0]
 $ST = (($Stats.Stamina)|Out-String).Split('.')[0]
@@ -218,7 +214,7 @@ $Level = $Auction.Dino.Level
 $Tamed = $Auction.Dino.BaseLevel
 $Gender = $Auction.Dino.Gender
 $Stats = ($Auction.Dino.Stats)
-$ItemLink = "$Item<br><img src=`"./img/Eggs/$ItemArkName.png`">"
+$ItemLink = "$Item<br><img src=`"$ImageHostLink/Eggs/$ItemArkName.png`">"
 $ItemCellDino = $ItemCellDino -replace "Seller","$Seller" -replace "Dino","$ItemLink" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats" -replace "Levels","$Levels"
 $ItemCellDino |Out-File $Eggfile -Append
 }
@@ -240,7 +236,7 @@ $IsBluePrint = $Auction.Item.Flags.IsBlueprint
 if ($IsBluePrint){
 $ForSaleItem = "<p style=`"color:CornflowerBlue;`">$ForSaleItem BluePrint</p>"
 }
-$ForSaleItemLink = "$ForSaleItem<br><img src=`"./img/Items/$ItemArkName.png`">"
+$ForSaleItemLink = "$ForSaleItem<br><img src=`"$ImageHostLink/Items/$ItemArkName.png`">"
 $Stats = ($Auction.Item.Stats)
 $Levels = "Gender: $Gender <br>Nutered: $Fixed<br>Tamed Level: $Tamed<br> Current Level: $Level <br> "
 $CraftedSkillBonus = ($Stats.CraftedSkillBonus)
