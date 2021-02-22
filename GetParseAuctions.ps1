@@ -1,17 +1,21 @@
-﻿$ImageHostLink = "https://raw.githubusercontent.com/Shakz76/Ark-AuctionHouse-Webpage-Generator-images/master/img"
-
-
-$response = Invoke-WebRequest -Uri 'https://linode.ghazlawl.com/ark/mods/auctionhouse/api/json/v1/auctions/?MarketID=[YOUR-MARKET-ID-HERE]' -UseBasicParsing
+﻿if (!$args){$response = Invoke-WebRequest -Uri "https://linode.ghazlawl.com/ark/mods/auctionhouse/api/json/v1/auctions/" -UseBasicParsing}
+else{
+$response = Invoke-WebRequest -Uri "https://linode.ghazlawl.com/ark/mods/auctionhouse/api/json/v1/auctions/?MarketID=$args" -UseBasicParsing
+}
 $Auctions = $response | ConvertFrom-Json
+$ImageHostLink = "https://raw.githubusercontent.com/Shakz76/Ark-AuctionHouse-Webpage-Generator-images/master/img"
+$BaseDmgFile = (Invoke-WebRequest 'https://raw.githubusercontent.com/Shakz76/Ark-AuctionHouse-Webpage-Generator/main/BaseDamage.txt').Content
+$BaseDmgFile|Out-File $PSScriptRoot/BaseDamage.txt
 $Eggfile = "$PSScriptRoot/EggListings.html"
 $Itemfile = "$PSScriptRoot/ItemListings.html"
 $Dinofile = "$PSScriptRoot/DinoListings.html"
 $indexfile = "$PSScriptRoot/index.html"
+
 $Dinoheader = @'
 <!DOCTYPE html>
 <html>
 <head>
-	<body style="background-color:#666;">
+	<body style="background-color:rgb(102,102,102);">
 <style>
 img{
 max-width:50%;
@@ -32,20 +36,22 @@ td, th {
   padding: 8px;
 }
 tr{
-  background-color: #666;
+  background-color: rgb(102,102,102);
 }
 </style>
 </head>
 <body>
 <button type="button" onclick=window.location.href="EggListings.html">Egg Listings</button><br>
-<button type="button" onclick=window.location.href="ItemListings.html">Item Listings</button>
+<button type="button" onclick=window.location.href="ItemListings.html">Item Listings</button><br>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Dinos..." title="Type in a name">
 <h2 style="color:GhostWhite;text-align: center;text-shadow: 2px 2px black">Dinos on the AH</h2>
 <table style="width:100\%">
+ <table id="myTable">
   <tr>
+    <th>Date</th>
     <th>Seller</th>
     <th>Dino Type</th> 
-    <th>Asking Item</th> 
-    <th>Asking Amount</th>
+    <th>Asking Amount\Item</th> 
     <th>Stats</th>
     <th>Levels</th>
   </tr>
@@ -55,7 +61,7 @@ $Eggheader = @'
 <!DOCTYPE html>
 <html>
 <head>
-	<body style="background-color:#666;">
+	<body style="background-color:rgb(102,102,102);">
 <style>
 img{
 max-width:50%;
@@ -76,20 +82,22 @@ td, th {
   padding: 8px;
 }
 tr{
-  background-color: #666;
+  background-color: rgb(102,102,102);
 }
 </style>
 </head>
 <body>
 <button type="button" onclick=window.location.href="DinoListings.html">Dino Listings</button><br>
-<button type="button" onclick=window.location.href="ItemListings.html">Item Listings</button>
+<button type="button" onclick=window.location.href="ItemListings.html">Item Listings</button><br>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Eggs..." title="Type in a name">
 <h2 style="color:GhostWhite;text-align: center;text-shadow: 2px 2px black">Eggs on the AH</h2>
 <table style="width:100\%">
+ <table id="myTable">
   <tr>
+    <th>Date</th>
     <th>Seller</th>
     <th>Egg Type</th> 
-    <th>Asking Item</th> 
-    <th>Asking Amount</th>
+    <th>Asking Amount\Item</th> 
   </tr>
 '@
 $Eggheader|Out-File $Eggfile -Force
@@ -97,7 +105,7 @@ $Itemheader = @'
 <!DOCTYPE html>
 <html>
 <head>
-	<body style="background-color:#666;">
+	<body style="background-color:rgb(102,102,102);">
 <style>
 img{
 max-width:50%;
@@ -118,39 +126,119 @@ td, th {
   padding: 8px;
 }
 tr{
-  background-color: #666;
+  background-color: rgb(102,102,102);
 }
 </style>
 </head>
 <body>
 <button type="button" onclick=window.location.href="DinoListings.html">Dino Listings</button><br>
-<button type="button" onclick=window.location.href="EggListings.html">Egg Listings</button>
+<button type="button" onclick=window.location.href="EggListings.html">Egg Listings</button><br>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Items..." title="Type in a name">
 <h2 style="color:GhostWhite;text-align: center;text-shadow: 2px 2px black">Items on the AH</h2>
 <table style="width:100\%">
+ <table id="myTable">
   <tr>
+    <th>Date</th>
     <th>Seller</th>
     <th>Item</th>
     <th>Quantity</th> 
-    <th>Asking Item</th> 
-    <th>Asking Amount</th>
+    <th>Asking Amount\Item</th> 
     <th>Stats</th>
   </tr>
 '@
 $Itemheader|Out-File $Itemfile -Force
 
-$footer = @'
+$Dinofooter = @'
   </table>
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
 
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 </body>
 </html>
 '@
+$Eggfooter = @'
+  </table>
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
 
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
+'@
+$Itemfooter = @'
+  </table>
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
+'@
 
 foreach ($Auction in $Auctions.Auctions){
 $AuctionType = $Auction.Type
 $Seller = $Auction.Seller.Name
 $Item = $auction.Name
 $ItemArkName = $Auction.SellingClass
+$Date = $Auction.Date
 #$ItemLink = "$Item<br><img src=`"$ImageHostLink/$ItemArkName.png`">"
 $ItemQuantity = $Auction.Quantity
 $PriceItemName = $Auction.AskingClass -replace "PrimalItemResource_","" -replace "_C","" -replace "PrimalItemConsumable_",""
@@ -162,15 +250,15 @@ if ($PriceItemName -eq "Gem_Element"){$PriceItemName = "Red Gem"}
 if ($PriceItemName -eq "Polymer_Organic"){$PriceItemName = "Organic Polymer"}
 if ($PriceItemName -eq "Silicon"){$PriceItemName = "Silica Pearls"}
 $PriceItem = $Auction.AskingClass
-$PriceItem = "$PriceItemName<br><img src=`"$ImageHostLink/Items/$PriceItem.png`"> "
 $PriceQuantity = $Auction.AskingAmount
+$PriceItem = "<b>$PriceQuantity</b> - $PriceItemName<br><img src=`"$ImageHostLink/Items/$PriceItem.png`"> "
 if ($AuctionType -eq "Dino"){
 $ItemCellDino = @'
 <tr>
+    <td>Date</td>
     <td>Seller</td>
     <td>Dino</td>
     <td>PriceItem</td>
-    <td>PriceQuantity</td>
     <td><p>Stats</p></td>
     <td>Levels</td>
   </tr>
@@ -196,18 +284,18 @@ if($Item -match "Wyvern"){
 else{
 [int]$BaseDmg = ((Get-Content $PSScriptRoot\BaseDamage.txt|Select-String "$item") -split ",")[1]
 }
-$DMG = ($Level*5/100*$DMG*$BaseDmg)
+$DMG =  [math]::Round($Level*5/100*$DMG*$BaseDmg)
 $Stats = "Health: $HP<br>Stam: $ST<br> Weight: $WT<br> Damage (Inaccurate) : $DMG<br> Oxygen: $OX<br> Food: $FD<br>"
-$ItemCellDino = $ItemCellDino -replace "Seller","$Seller" -replace "Dino","$ItemLink" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats" -replace "Levels","$Levels"
+$ItemCellDino = $ItemCellDino -replace "Date","$Date" -replace "Seller","$Seller" -replace "Dino","$ItemLink" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats" -replace "Levels","$Levels"
 $ItemCellDino |Out-File $Dinofile -Append
 }
 if ($AuctionType -eq "Egg"){
 $ItemCellDino = @'
 <tr>
+    <td>Date</td>
     <td>Seller</td>
     <td>Dino</td>
     <td>PriceItem</td>
-    <td>PriceQuantity</td>
   </tr>
 '@
 $Level = $Auction.Dino.Level
@@ -215,17 +303,17 @@ $Tamed = $Auction.Dino.BaseLevel
 $Gender = $Auction.Dino.Gender
 $Stats = ($Auction.Dino.Stats)
 $ItemLink = "$Item<br><img src=`"$ImageHostLink/Eggs/$ItemArkName.png`">"
-$ItemCellDino = $ItemCellDino -replace "Seller","$Seller" -replace "Dino","$ItemLink" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats" -replace "Levels","$Levels"
+$ItemCellDino = $ItemCellDino -replace "Date","$Date" -replace "Seller","$Seller" -replace "Dino","$ItemLink" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats" -replace "Levels","$Levels"
 $ItemCellDino |Out-File $Eggfile -Append
 }
 if ($AuctionType -eq "Item"){
 $ItemCellDino = @'
 <tr>
+    <td>Date</td>
     <td>Seller</td>
     <td>ForSaleItem</td>
     <td>ForSaleQuantity</td>
     <td>PriceItem</td>
-    <td>PriceQuantity</td>
     <td><p>Stats</p></td>
   </tr>
 '@
@@ -252,14 +340,14 @@ if (!$HypothermalInsulation){$HypothermalInsulation = "N\A"}
 $HyperthermalInsulation = ($Stats.HyperthermalInsulation)
 if (!$HyperthermalInsulation){$HyperthermalInsulation = "N\A"}
 $Stats = "CraftedSkillBonus: $CraftedSkillBonus<br>Armor: $Armor<br> MaxDurability: $MaxDurability<br> Damage: $Damage<br> HypothermalInsulation: $HypothermalInsulation<br> HyperthermalInsulation: $HyperthermalInsulation<br>"
-$ItemCellDino = $ItemCellDino -replace "Seller","$Seller" -replace "ForSaleItem","$ForSaleItemLink" -replace "ForSaleQuantity","$ForSaleQuantity" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats"
+$ItemCellDino = $ItemCellDino -replace "Date","$Date" -replace "Seller","$Seller" -replace "ForSaleItem","$ForSaleItemLink" -replace "ForSaleQuantity","$ForSaleQuantity" -replace "PriceItem","$PriceItem" -replace "PriceQuantity","$PriceQuantity" -replace "Stats","$Stats"
 
 $ItemCellDino |Out-File $Itemfile -Append
 }
 }
 
 
-$footer|Out-File $Dinofile -Append
-$footer|Out-File $Eggfile -Append
-$footer|Out-File $Itemfile -Append
+$Dinofooter|Out-File $Dinofile -Append
+$Eggfooter|Out-File $Eggfile -Append
+$Itemfooter|Out-File $Itemfile -Append
 Copy-Item -Force $Dinofile $indexfile
